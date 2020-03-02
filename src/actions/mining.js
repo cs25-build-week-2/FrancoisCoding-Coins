@@ -28,8 +28,8 @@ export const findProofOfWork = (lastProof, difficulty) => {
   // dispatch({ type: FINDING_NEW_PROOF });
 
   let proof = 0;
-  let leadingZeros = "0".repeat;
-
+  let leadingZeros = "0".repeat(difficulty);
+  
   while (sha256(`${lastProof}${proof}`).slice(0, difficulty) !== leadingZeros) {
     proof++;
   }
