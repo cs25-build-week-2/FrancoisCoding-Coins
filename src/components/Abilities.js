@@ -7,8 +7,8 @@ export const Abilities = () => {
   return (
     <div>
       <div>Unlocked Abilities</div>
-      {playerState.abilities.map(ability => (
-        <div>{ability.toUpperCase()}</div>
+      {playerState.abilities.map((ability, i) => (
+        <li key={i}>{ability.toUpperCase()}</li>
       ))}
     </div>
   );

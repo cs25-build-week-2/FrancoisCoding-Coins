@@ -5,19 +5,20 @@ import { collectTreasure } from "./util/autoGold";
 import { useStateValue } from "./hooks/useStateValue";
 import Abilities from "./components/Abilities";
 import Wallet from "./components/Wallet";
+import Dashboard from "./components/Dashboard";
 
 function App() {
   const [{ gameState }, dispatch] = useStateValue();
 
   useEffect(() => {
+    initGame(dispatch);
     playerStatus(dispatch);
   }, [dispatch]);
 
   return (
     <div className="App">
       Treasure Hunt!
-      <Abilities />
-      <Wallet />
+      <Dashboard />
     </div>
   );
 }
