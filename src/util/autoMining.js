@@ -48,8 +48,7 @@ import {
       // traverse to room
       await traverse(dispatch, +room_number, map);
       // mine coin
-      let mining = await mineCoin(dispatch);
-      console.log("Mine result: ", mining);
-      init = +room_number;
+      await mineCoin(dispatch);
+      init = { room_id: +room_number };
     }
   };

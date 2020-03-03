@@ -1,21 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import { useStateValue } from "../hooks/useStateValue";
 
 export const Wallet = () => {
   const [{ playerState, gameState }] = useStateValue();
-  console.log(playerState);
+  const [showInventory, setInventory] = useState(true);
   return (
-    <div>
-      <div>Virtual Wallet</div>
-      <div>Gold Found: {playerState.gold}</div>
-      <div>Mined Coins: {gameState.coins}</div>
-      <div>
-        Inventory:{" "}
-        {playerState.inventory.map((item, i) => (
-          <li key={i}>{item}</li>
-        ))}
-      </div>
+    <>
+    <div className="wallet">
+      <p>
+        Gold: <span className="statValue">{playerState.gold}</span>
+      </p>
+      <p>
+        Coins: <span className="statValue">{gameState.coins}</span>
+      </p>
+      <p>
+        Snitches: <span className="statValue">{playerState.snitches}</span>
+      </p>
+    <div className="inventory-button" onClick={() => setInventory(!showInventory)}><p>Inventory {showInventory ? "▸" : "▾"}</p></div>
     </div>
+    {showInventory && (
+        <div classList="inventory">
+          <h2>Inventory</h2>
+          {" "}
+          <ul>
+            {playerState.inventory.map((item, i) => (
+              <li key={i}>{item}</li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </>
   );
 };
 

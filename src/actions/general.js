@@ -1,4 +1,3 @@
-// examine, take, drop, sell, status, carry, receive, pray, name change, transmog
 import { axiosWithAuth } from "../util/axiosWIthAuth";
 import { wait } from "./cooldown";
 

@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css?family=Alegreya|Alegreya+Sans');
+
+$fuschia-dk: #452434;
+$royal-dk: #30346d;
+$almost-black: #140c1c;
+$purple: #597dcf;
+$almost-cyan: #6dc3cb;
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: whitesmoke;
+}
+
+div {
+    margin: 0;
+    padding: 0
+}
+
+h1 {
+    font-family: 'Alegreya', serif;
+    font-size: 20px;
+    margin: 0;
+    color: $purple;
+}
+
+h2 {
+    font-family: 'Alegreya', serif;
+    font-size: 16px;
+    margin: 0;
+    color: $purple;
+}
+
+.statValue {
+    color: $almost-cyan;
+}
+
+.statDanger {
+    color: red
+}
+
+p, ul {
+    font-family: 'Alegreya Sans', sans-serif;
+    font-size: 16px;
+    margin: 10px;
+    color: $purple;
+}
+
+
+ul {
+    display: flex;
+    flex-direction: column;
+    margin: 0
+}
+
+
+li {  
+    font-family: 'Alegreya Sans', sans-serif;
+    font-size: 16px;
+    color: $purple;
+}
+
+.dashboard {
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: space-evenly;
+    justify-content: space-between
+}
+
+.top {
+    width: 100vw;
+    min-height: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.middle {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.bottom {
+    width: 100vw;
+    min-height: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+.inventory-button {
+    font-family: 'Alegreya Sans', sans-serif;
+    font-size: 16px;
+    border: 1px solid #333;
+    border-radius: 2px;
+}
+
+.inventory {
+    display: block;
+    border: 1px solid #333;
+    border-radius: 2px;
+    padding: 5px
+
+}
+
+.stats, .gear, .wallet, .roomInfo {
+    padding: 10px
+}
+
+.abilities {
+    border: 1px solid magenta
+} 

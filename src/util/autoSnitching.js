@@ -40,6 +40,6 @@ export const autoSnitchMiner = async dispatch => {
     } else {
       console.log("Just missed it...");
     }
-    init = +room_number;
+    init = { room_id: +room_number };
   }
 };

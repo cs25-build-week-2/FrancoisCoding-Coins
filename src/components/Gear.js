@@ -5,10 +5,23 @@ export const Gear = () => {
   const [{ playerState }] = useStateValue();
 
   return (
-    <div>
-      <div>Gear</div>
-      <div>Bodywear: {playerState.bodywear}</div>
-      <div>Footwear: {playerState.footwear}</div>
+    <div className="gear">
+      <p>
+        Bodywear:{" "}
+        {playerState.bodywear ? (
+          <span className="statValue">{playerState.bodywear}</span>
+        ) : (
+          "No bodywear."
+        )}
+      </p>
+      <p>
+        Footwear:{" "}
+        {playerState.footwear ? (
+          <span className="statValue">{playerState.footwear}</span>
+        ) : (
+          "No footwear."
+        )}
+      </p>
     </div>
   );
 };

@@ -5,7 +5,7 @@ export const Room = () => {
   const [{ gameState }] = useStateValue();
 
   return (
-    <div>
+    <div className="room">
       <div>Current Room #: {gameState.room_id}</div>
       <div>Coordinates: {gameState.coordinates}</div>
       <div>

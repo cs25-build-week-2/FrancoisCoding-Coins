@@ -6,6 +6,7 @@ import { useStateValue } from "./hooks/useStateValue";
 import Abilities from "./components/Abilities";
 import Wallet from "./components/Wallet";
 import Dashboard from "./components/Dashboard";
+import "./styles/main.scss";
 
 function App() {
   const [{ gameState }, dispatch] = useStateValue();
@@ -16,7 +17,7 @@ function App() {
   }, [dispatch]);
 
   return (
-    <div className="App">
+    <div className="app">
       Treasure Hunt!
       <Dashboard />
     </div>
