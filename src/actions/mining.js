@@ -1,4 +1,3 @@
-// get last proof, mine (submits proof), get balance
 import { axiosWithAuth } from "../util/axiosWIthAuth";
 import { wait } from "./cooldown";
 import { sha256 } from "js-sha256";

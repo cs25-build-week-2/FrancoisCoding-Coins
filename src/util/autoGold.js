@@ -5,11 +5,11 @@ import { move, fly, recall } from "../actions/movement";
 import { getPathToRoom } from "./traverse";
 
 export async function sellTreasure(dispatch, room, inventory) {
-  if (room.room_id !== 0 && room.room_id !== 1) {
+  if (room.id !== 0 && room.id !== 1) {
     await recall(dispatch);
   }
 
-  if (room.room_id !== 1) {
+  if (room.id !== 1) {
     // encumbered flight is worse than encumbered move
     move("w", "1");
     console.log("Going to shop");
@@ -36,13 +36,13 @@ export async function collectTreasure(dispatch, map) {
 
 export async function traverseForGold(dispatch, target, map) {
   let room = await initGame(dispatch);
-  let path = getPathToRoom(map[room.room_id], map, target);
-  // console.log("room", room, "path", path);
+  let path = getPathToRoom(map[room.id], map, target);
 
   return await walkBackForGold(dispatch, path);
 }
 
 export async function walkBackForGold(dispatch, path) {
+  console.log('PATH',path)
   let startingRoom = path.shift();
   let nextRoom = null;
   let player = await playerStatus(dispatch);
@@ -55,12 +55,12 @@ export async function walkBackForGold(dispatch, path) {
     let directions = ["n", "s", "e", "w"];
 
     for (let dir of directions) {
-      if (startingRoom.neighbors[dir] === nextRoom.room_id) {
+      if (startingRoom.neighbors[dir] === nextRoom.id) {
         if (nextRoom.terrain !== "CAVE") {
-          newRoom = await fly(dispatch, dir, `${nextRoom.room_id}`);
+          newRoom = await fly(dispatch, dir, `${nextRoom.id}`);
           console.log("FLYING", newRoom);
         } else {
-          newRoom = await move(dispatch, dir, nextRoom.room_id);
+          newRoom = await move(dispatch, dir, nextRoom.id);
           console.log("BOOSTED", newRoom);
         }
         startingRoom = nextRoom;

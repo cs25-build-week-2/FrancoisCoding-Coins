@@ -1,7 +1,6 @@
 import { START_STATUS, STATUS_SUCCESS, STATUS_ERROR } from "../actions";
 
 export const playerReducer = (state, { type, payload }) => {
-  // status endpoint
   switch (type) {
     case START_STATUS:
       return {

@@ -9,21 +9,6 @@ import {
   MINING_ERROR
 } from "../actions";
 
-/*
-  miningState: {
-    index: 0,
-    transactions: "",
-    proof: 0,
-    previous_hash: "",
-    cooldown: 0,
-    messages: [],
-    errors: [],
-    difficulty: 0,
-    newProof: "",
-    isLoading: false
-  }
-*/
-
 export const miningReducer = (state, { type, payload }) => {
   switch (type) {
     case GETTING_LAST_PROOF:
@@ -46,14 +31,6 @@ export const miningReducer = (state, { type, payload }) => {
         serverError: payload,
         isLoading: false
       };
-    // case FINDING_NEW_PROOF:
-    //   return {
-    //     ...state
-    //   };
-    // case NEW_PROOF_FOUND:
-    //   return {
-    //     ...state
-    //   };
     default:
       return state;
   }

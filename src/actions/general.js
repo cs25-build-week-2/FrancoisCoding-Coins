@@ -61,9 +61,12 @@ export const SELL_ERROR = "SELL_ERROR";
 export const sell = async (dispatch, item) => {
   dispatch({ type: START_SELL });
   try {
-    const res = await axiosWithAuth().post("adv/sell/", { name: item });
-    // console.log("res.data ", res.data);
+    const res = await axiosWithAuth().post("adv/sell/", {
+      name: item,
+      confirm: "yes"
+    });
     dispatch({ type: SELL_SUCCESS, payload: res.data });
+    console.log(`Sold ${item}`);
     wait(res.data.cooldown);
     return res.data;
   } catch (err) {
@@ -136,9 +139,27 @@ export const playerStatus = async dispatch => {
     const res = await axiosWithAuth().post("adv/status/");
     dispatch({ type: STATUS_SUCCESS, payload: res.data });
     wait(res.data.cooldown);
+    console.log('CoolDown',res.data.cooldown, 'Data', res.data)
     return res.data;
   } catch (err) {
     console.log("error", err.response);
     dispatch({ type: STATUS_ERROR, payload: err.response });
+  }
+};
+
+export const START_TRANSMOG = "START_TRANSMOG";
+export const TRANSMOG_SUCCESS = "TRANSMOG_SUCCESS";
+export const TRANSMOG_ERROR = "TRANSMOG_ERROR";
+
+export const transmogrify = async dispatch => {
+  dispatch({ type: START_TRANSMOG });
+  try {
+    const res = await axiosWithAuth().post("adv/transmogrify/");
+    dispatch({ type: TRANSMOG_SUCCESS, payload: res.data });
+    wait(res.data.cooldown);
+    return res.data;
+  } catch (err) {
+    console.log("error", err.response);
+    dispatch({ type: TRANSMOG_ERROR, payload: err.response });
   }
 };
